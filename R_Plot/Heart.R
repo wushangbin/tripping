@@ -60,3 +60,47 @@ if (FALSE) {
     coord_flip() +
     ggtitle('Population grouped by positive or negative change')
 }
+# 用ggplot2画线图
+if (FALSE) {
+  g <- ggplot(population, aes(x=reorder(ChineseName, population2020), y=population2020, group=1)) +
+    geom_line() +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  g
+}
+# 用ggplot2画条形图
+if (FALSE) {
+  g <- ggplot(population, aes(x=reorder(ChineseName, population2020), y=population2020, group=1)) +
+    geom_col() +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  g
+}
+# 用ggplot2画一个条形图，其中用不同颜色表示另一个属性（人口增长率）
+population$percentChange <- population$popChange/population$population2020 * 100
+if (FALSE) {
+  g <- ggplot(population, aes(x=reorder(ChineseName, population2020), y=population2020, fill=percentChange)) +
+    geom_col() +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  g
+}
+# 选两列画散点图，并加标签
+if (TRUE) {
+  ggplot(population, aes(x=popChange, y=percentChange)) +
+    geom_point(aes(size=population2020, color=population2020)) +
+    geom_text(aes(label=ChineseName), size=4, hjust=1, vjust=-1)  # 给散点加label
+  # hjust, vjust: adjusting the horizontal and vertical position of the text
+}
+if (TRUE) {
+  minPerChange <- 1
+  minPopChange <- 100000
+  population$keyProvince <- population$popChange>minPopChange & population$percentChange > minPerChange
+  minLabel <- format(min(population$population2020), big.mark = ",", trim = TRUE)
+  maxLabel <- format(max(population$population2020), big.mark = ",", trim = TRUE)
+  medianLabel <- format(median(population$population2020), big.mark = ",", trim = TRUE)
+  g <- ggplot(population, aes(x=popChange, y=percentChange)) +
+    geom_point(aes(size=population2020, color=population2020, shape=keyProvince)) +
+    geom_text(data = poulation[population$popChange > minPopChange & population$percentChange > minPerChange,],
+              aes(label=ChineseName, hjust=1, vjust=-1)) +
+    scale_color_continuous(name="Pop", breaks = with(population, c(
+      min(population2020), median(population2020), max(population2020))),
+    labels = c(minLabel, medianLabel, maxLabel), low = "white", high = "black")
+}
