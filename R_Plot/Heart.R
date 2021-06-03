@@ -85,22 +85,25 @@ if (FALSE) {
 # 选两列画散点图，并加标签
 if (TRUE) {
   ggplot(population, aes(x=popChange, y=percentChange)) +
-    geom_point(aes(size=population2020, color=population2020)) +
+    geom_point(aes(size=population2020, color=population2020)) +  # 这里散点颜色和大小是同一个含义，可根据需要调整
     geom_text(aes(label=ChineseName), size=4, hjust=1, vjust=-1)  # 给散点加label
   # hjust, vjust: adjusting the horizontal and vertical position of the text
 }
+# 我们选一些关键点画散点图，并做标记。这里画的图是黑白的。
 if (TRUE) {
-  minPerChange <- 1
-  minPopChange <- 100000
+  minPerChange <- 10
+  minPopChange <- 1000000
   population$keyProvince <- population$popChange>minPopChange & population$percentChange > minPerChange
   minLabel <- format(min(population$population2020), big.mark = ",", trim = TRUE)
   maxLabel <- format(max(population$population2020), big.mark = ",", trim = TRUE)
   medianLabel <- format(median(population$population2020), big.mark = ",", trim = TRUE)
   g <- ggplot(population, aes(x=popChange, y=percentChange)) +
     geom_point(aes(size=population2020, color=population2020, shape=keyProvince)) +
-    geom_text(data = poulation[population$popChange > minPopChange & population$percentChange > minPerChange,],
+    geom_text(data = population[population$popChange > minPopChange & population$percentChange > minPerChange,],
               aes(label=ChineseName, hjust=1, vjust=-1)) +
+    # 加图例，展示出最小值，最大值和中位数
     scale_color_continuous(name="Pop", breaks = with(population, c(
       min(population2020), median(population2020), max(population2020))),
     labels = c(minLabel, medianLabel, maxLabel), low = "white", high = "black")
+  g
 }
