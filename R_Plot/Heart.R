@@ -42,11 +42,21 @@ if (FALSE) {
   hist(population$population2020)
   barplot(population$population2020, names.arg = population$ChineseName, las=2)
 }
+require("ggplot2")
 # 用ggplot2画直方图
 if (FALSE) {
-  require("ggplot2")
   g <- ggplot(population, aes(x=population2020)) +
     geom_histogram(binwidth = 5000000, color='black', fill='white') +
     ggtitle("China Population Histogram")
   g
+}
+# 为数据增加新的列，来表示人口从2010到2020是否增长了
+population$popChange <- population$population2020 - population$population2010
+population$increasePop <- ifelse(population$popChange > 0, "positive", "negative")
+# 用ggplot2画箱线图
+if (FALSE) {
+  ggplot(population, aes(x=factor(increasePop), population2010)) +
+    geom_boxplot() +
+    coord_flip() +
+    ggtitle('Population grouped by positive or negative change')
 }
