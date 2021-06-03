@@ -107,3 +107,7 @@ if (TRUE) {
     labels = c(minLabel, medianLabel, maxLabel), low = "white", high = "black")
   g
 }
+library("ggmap")
+china <- map_data("china")
+china
+map.simple <- geom_map(map = china, fill="white", color="black")
