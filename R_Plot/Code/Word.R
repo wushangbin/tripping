@@ -4,8 +4,8 @@
 # Created on: 2021/6/3
 # --- 从本地文件读取文本：
 if (TRUE) {
-  setwd("E:/Project/tripping/R_Plot/Data")
-  textfile <- "GB.txt"
+  setwd("../Data")
+  textfile <- "../Data/GB.txt"
   # 一行一行地读取文本数据
   # 方法1：
   text <- scan(textfile, character(0), sep='\n')

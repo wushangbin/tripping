@@ -12,7 +12,7 @@ EnsurePackage <- function(x) {
     require(x, character.only=TRUE)
   }
 }
-data  = read.csv("Data/heart.csv")
+data  = read.csv("../Data/heart.csv")
 #hist(data$fbs)
 print(names(data))
 # 相关性计算
@@ -35,8 +35,8 @@ if (FALSE) {
     ggtheme = theme_minimal()) +
     theme(axis.title.x =element_text(size=20), axis.title.y=element_text(size=20))
 }
-setwd("E:/Project/tripping/R_Plot")
-population = read.csv("Data/China_Population.csv")
+setwd("..")
+population = read.csv("../Data/China_Population.csv")
 # 画直方图和条形图
 if (FALSE) {
   hist(population$population2020)
