@@ -4,4 +4,5 @@
 主要有一些简单处理文本数据的方法，包括：  
 从txt，http，https中读取文本  
 将文本转换成TermDocumentMatrix  
-绘制WordCloud
+绘制WordCloud  
+对文本进行sentiment analysis
