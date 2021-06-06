@@ -14,3 +14,10 @@ https://github.com/xjcjiacheng/data-analysis/tree/master/heart%20disease%20UCI
 ##3. GB.txt:  
 这是President Georege Bush的演讲：Announcing War Against Iraq, 来自：  
 https://www.historyplace.com/speeches/bush-war.htm  
+##4. option-lexicon-English:  
+This folder contains both positive and negative words.
+Specifically, there will be one text file is for the positive words and one text file if for the negative words.  
+From:  
+https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html  
+In section 3, Sentiment Analysis of Comparative Opinions-Opinion Lexicon (or Sentiment Lexicon)-Opinion Lexicon
+
