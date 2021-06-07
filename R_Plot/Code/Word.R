@@ -22,7 +22,7 @@ if (FALSE) {
   head(text, 3)
 }
 # 如果处理的是HTTPS，可如下处理：
-if (TRUE) {
+if (FALSE) {
   library(RCurl)
   url <- "https://www.jianshu.com/p/48d758ce62b4"
   web <- getURL(url)
