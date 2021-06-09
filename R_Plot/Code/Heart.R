@@ -108,7 +108,7 @@ if (TRUE) {
   g
 }
 names(population)
-# 画回归线
+# --画回归线
 if (TRUE) {
   ggplot(population, aes(x=population2010, y=popChange)) +
     geom_point() +
