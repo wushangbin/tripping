@@ -35,8 +35,8 @@ if (FALSE) {
     ggtheme = theme_minimal()) +
     theme(axis.title.x =element_text(size=20), axis.title.y=element_text(size=20))
 }
-setwd("..")
-population = read.csv("../Data/China_Population.csv")
+setwd("E:/Project/tripping/R_Plot/Data")
+population = read.csv("China_Population.csv")
 # 画直方图和条形图
 if (FALSE) {
   hist(population$population2020)
@@ -106,6 +106,13 @@ if (TRUE) {
       min(population2020), median(population2020), max(population2020))),
     labels = c(minLabel, medianLabel, maxLabel), low = "white", high = "black")
   g
+}
+names(population)
+# 画回归线
+if (TRUE) {
+  ggplot(population, aes(x=population2010, y=popChange)) +
+    geom_point() +
+    stat_smooth(method="lm", col="red")
 }
 library("ggmap")
 china <- map_data("china")
