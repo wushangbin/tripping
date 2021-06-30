@@ -8,3 +8,5 @@
 2. 将文本转换成TermDocumentMatrix  
 3. 绘制WordCloud  
 4. 对文本进行sentiment analysis
+#### SVM.R
+用R语言实现支持向量机
