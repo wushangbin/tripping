@@ -2,6 +2,7 @@
 # Objective : 使用Cora数据集，通过一个完整的例子来理解GCN, 代码来自《深入浅出图神经网络》
 # Created by: Wu Shangbin
 # Created on: 2021/6/24
+# Reference : 刘忠雨，李彦霖，周洋 《深入浅出图神经网络》
 from collections import namedtuple
 import os
 import pickle
